@@ -18,4 +18,17 @@ app.use(express.static("public"))
 app.use(cookieParser())
 
 
-export default app;
+//routes import 
+
+import userRouter from './routes/user.routes.js'
+
+// routes declaration
+app.use("/api/v1/users", userRouter)
+
+/* Notes
+Previously we were directly using routes in the app.js by using app.get() etc
+Now we have to use a middleware to pass the control to the userRouter
+Whenever /users is hit the control will be passed to userRouter
+Whatever is defined in userRouter will be executed ahead.
+*/
+export {app};

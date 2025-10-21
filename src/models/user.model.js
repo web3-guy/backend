@@ -81,7 +81,7 @@ userSchema.methods.getAccessToken = function () {
 }
 
 // refresh token will be stored in the db while token acts as session which is not stored in the db.
-userSchema.methods.getAccessToken = function () {
+userSchema.methods.getRefreshToken = function () {
     return jwt.sign(
         {
             _id: this._id,

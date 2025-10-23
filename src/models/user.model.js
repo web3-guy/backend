@@ -65,7 +65,7 @@ userSchema.methods.isPasswordCorrect = async function (password) {
 };
 
 //jwt creation
-userSchema.methods.getAccessToken = function () {
+userSchema.methods.generateAccessToken = function () {
     return jwt.sign(
         {
             _id: this._id,
@@ -81,7 +81,7 @@ userSchema.methods.getAccessToken = function () {
 };
 
 // refresh token will be stored in the db while token acts as session which is not stored in the db.
-userSchema.methods.getRefreshToken = function () {
+userSchema.methods.generateRefreshToken = function () {
     return jwt.sign(
         {
             _id: this._id,
